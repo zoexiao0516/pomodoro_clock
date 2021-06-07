@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Limelight', cursive;
+}
+
+h2 {
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+h4 {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.home-link {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}

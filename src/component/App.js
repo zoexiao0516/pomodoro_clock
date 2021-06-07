@@ -1,6 +1,13 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 import '../App.css';
-import BreakLength from './BreakLength';
 import SessionLength from './SessionLength';
 import Timer from './Timer';
 
@@ -98,18 +105,24 @@ class App extends React.Component {
     return(
       <main>
         <h2>Pomodoro Clock</h2>
+        
+        <div className="setting-link">
+        <Link to='/setting'>Setting</Link></div>
+        
         <section className='interval-container-outer'>
           <SessionLength sessionLength={this.state.breakLength}
             increaseSession={this.onIncreaseBreakLength}
             decreaseSession={this.onDecreaseBreakLength}
             isPlay={this.state.isPlay}
             />
+          
           <SessionLength sessionLength={this.state.sessionLength}
             increaseSession={this.onIncreaseSessionLength}
             decreaseSession={this.onDecreaseSessionLength}
             isPlay={this.state.isPlay}
             />
         </section>
+        
         <Timer timerMinute={this.state.timerMinute}
           breakLength={this.state.breakLength}
           decreaseTimerMinute={this.onDecreaseTimerMinute}
