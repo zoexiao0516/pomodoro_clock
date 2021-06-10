@@ -113,14 +113,14 @@ class App extends React.Component {
             increaseSession={this.onIncreaseBreakLength}
             decreaseSession={this.onDecreaseBreakLength}
             isPlay={this.state.isPlay}
-            buttonColor={this.state.buttonColor}
+            sessionName='Break'
             />
           
           <SessionLength sessionLength={this.state.sessionLength}
             increaseSession={this.onIncreaseSessionLength}
             decreaseSession={this.onDecreaseSessionLength}
             isPlay={this.state.isPlay}
-            // buttonColor={this.state.buttonColor}
+            sessionName='Session'
             />
         </section>
         

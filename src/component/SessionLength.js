@@ -19,7 +19,7 @@ function SessionLength(props) {
 
     return (
         <section>
-            <h4>Set Your Session Length</h4>
+            <h4>Set Your {props.sessionName} Length</h4>
             <section className="interval-container-inner">
                 <button style={{backgroundColor: props.buttonColor}} disabled={props.isPlay === true ? "disabled" : ""} onClick={decreaseSession}>Down</button>
                 <p className="interval-length">{props.sessionLength}</p>
