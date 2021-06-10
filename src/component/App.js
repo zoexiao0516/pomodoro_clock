@@ -1,15 +1,12 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
-import '../App.css';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import './App.css';
 import SessionLength from './SessionLength';
 import Timer from './Timer';
+import { ThemeProvider } from "styled-components";
+import WebFont from 'webfontloader';
+import { GlobalStyles } from '../theme/GlobalStyles.js';
+import { useTheme } from '../theme/useTheme';
 
 
 class App extends React.Component {
@@ -22,6 +19,7 @@ class App extends React.Component {
       sessionLength: 25,
       timerMinute: 25,
       isPlay: false
+      // buttonColor: "#ff8f69"
     }
 
     // bind functions
@@ -100,26 +98,29 @@ class App extends React.Component {
       isPlay: isPlay
     })
   }
-  
+
+
   render() {
     return(
       <main>
         <h2>Pomodoro Clock</h2>
         
         <div className="setting-link">
-        <Link to='/setting'>Setting</Link></div>
+        <Link to='/theming'>Theming</Link></div>
         
         <section className='interval-container-outer'>
           <SessionLength sessionLength={this.state.breakLength}
             increaseSession={this.onIncreaseBreakLength}
             decreaseSession={this.onDecreaseBreakLength}
             isPlay={this.state.isPlay}
+            buttonColor={this.state.buttonColor}
             />
           
           <SessionLength sessionLength={this.state.sessionLength}
             increaseSession={this.onIncreaseSessionLength}
             decreaseSession={this.onDecreaseSessionLength}
             isPlay={this.state.isPlay}
+            // buttonColor={this.state.buttonColor}
             />
         </section>
         
@@ -129,10 +130,45 @@ class App extends React.Component {
           toggleInterval={this.onToggleInterval}
           resetTimer={this.onResetTimer}
           onPlayStopTimer={this.onPlayStopTimer}
+          // buttonColor={this.state.buttonColor}
           />
+      
       </main>
     );
   }
 }
 
-export default App;
+// export default App;
+
+function ThemeChanger() {
+  // 3: Get the selected theme, font list, etc.
+  const {theme, themeLoaded, getFonts} = useTheme();
+  const [selectedTheme, setSelectedTheme] = useState(theme);
+
+  useEffect(() => {
+    setSelectedTheme(theme);
+   }, [themeLoaded]);
+
+  // 4: Load all the fonts
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: getFonts()
+      }
+    });
+  });
+
+  // 5: Render if the theme is loaded.
+  return (
+    <>
+    {
+      themeLoaded && <ThemeProvider theme={ selectedTheme }>
+        <GlobalStyles/>
+        <App />
+      </ThemeProvider>
+    }
+    </>
+  );
+}
+
+export default ThemeChanger;

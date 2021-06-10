@@ -92,9 +92,9 @@ class Timer extends React.Component {
                 this.state.timerSecond}</span>
             </section>
             <section className="timer-action">
-            <button onClick={this.playTimer}>Play</button>
-            <button onClick={this.stopTimer}>Stop</button>
-            <button onClick={this.resetTimer}>Reset</button>
+            <button onClick={this.playTimer} style={{backgroundColor: this.props.buttonColor}}>Play</button>
+            <button onClick={this.stopTimer} style={{backgroundColor: this.props.buttonColor}}>Stop</button>
+            <button onClick={this.resetTimer} style={{backgroundColor: this.props.buttonColor}}>Reset</button>
             </section>
         </section>
     );

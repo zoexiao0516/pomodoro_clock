@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
-
 main {
     display: flex;
     flex-direction: column;
     height: 90vh;
     justify-content: center;
     align-items: center;
-    font-family: 'Limelight', cursive;
+    /* font-family: 'Limelight', cursive; */
 }
 
 button {
@@ -17,7 +15,7 @@ button {
     cursor: pointer;
     width: 70px;
     border-radius: 10px;
-    font-family: 'Limelight', cursive;
+    /* font-family: 'Limelight', cursive; */
 }
 
 button:disabled{
@@ -53,12 +51,12 @@ h4 {
 }
 
 .timer-container {
-    border: 2px solid #ffe6b9;
+    border: 2px solid gray;
     margin-top: 40px;
     border-radius: 25px;
     width: 300px;
     text-align: center;
-    box-shadow: 0 2px 4px #ff8f69;
+    box-shadow: 0 2px 4px gray;
     padding: 10px;
 }
 
