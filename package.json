@@ -1,6 +1,5 @@
 {
   "name": "pomodoro-clock",
-  "homepage": "https://zoexiao0516.github.io/pomodoro_clock",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
